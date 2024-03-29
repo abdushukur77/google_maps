@@ -40,12 +40,12 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
                     id: DateTime.now().millisecond.toInt(),
                   );
 
-                  if (cameraPosition != null) {
-                    context
-                        .read<MapsViewModel>()
-                        .changeCurrentLocation(cameraPosition!);
-                     context.read<MapsViewModel>().addNewMarker();
-                  }
+                  // if (cameraPosition != null) {
+                  //   context
+                  //       .read<MapsViewModel>()
+                  //       .changeCurrentLocation(cameraPosition!);
+                  //    context.read<MapsViewModel>().addNewMarker();
+                  // }
                   // ScaffoldMessenger.of(context)
                   //     .showSnackBar(const SnackBar(content: Text("IDLE")));
                 },
@@ -71,8 +71,9 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
           );
         },
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Row(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.min,
         children: [
           FloatingActionButton(
@@ -81,12 +82,17 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
             },
             child: const Icon(Icons.gps_fixed),
           ),
-          const SizedBox(width: 20),
+          const SizedBox(height: 20),
           const MapTypeItem(),
-          const SizedBox(width: 20),
+          const SizedBox(height: 23),
           FloatingActionButton(
             onPressed: () {
-              context.read<MapsViewModel>().moveToInitialPosition();
+              if (cameraPosition != null) {
+                context
+                    .read<MapsViewModel>()
+                    .changeCurrentLocation(cameraPosition!);
+                context.read<MapsViewModel>().addNewMarkers(latLng: latLng);
+              }
             },
             child: const Icon(Icons.add_location_alt),
           ),

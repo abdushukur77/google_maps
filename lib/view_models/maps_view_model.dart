@@ -51,7 +51,7 @@ class MapsViewModel extends ChangeNotifier {
   }
 
   addNewMarker() async {
-    markers = {};
+    // markers = {};
     Uint8List markerImage = await getBytesFromAsset(
       AppImages.courier,
       150,
@@ -61,13 +61,29 @@ class MapsViewModel extends ChangeNotifier {
         position: currentCameraPosition.target,
         infoWindow: const InfoWindow(title: "Toshkent", snippet: "Chilonzor"),
         //BitmapDescriptor.defaultMarker,
-        icon: BitmapDescriptor.fromBytes(markerImage),
+        // icon: BitmapDescriptor.fromBytes(markerImage),
         markerId: MarkerId(DateTime.now().toString()),
       ),
     );
     notifyListeners();
   }
+  addNewMarkers({required LatLng? latLng}) async {
 
+    Uint8List markerImage = await getBytesFromAsset(
+      AppImages.courier,
+      150,
+    );
+    markers.add(
+      Marker(
+        position: currentCameraPosition.target,
+        infoWindow: const InfoWindow(title: "Toshkent", snippet: "Chilonzor"),
+        //BitmapDescriptor.defaultMarker,
+        // icon: BitmapDescriptor.fromBytes(markerImage),
+        markerId: MarkerId(DateTime.now().toString()),
+      ),
+    );
+    notifyListeners();
+  }
   static Future<Uint8List> getBytesFromAsset(String path, int width) async {
     ByteData data = await rootBundle.load(path);
     ui.Codec codec = await ui.instantiateImageCodec(

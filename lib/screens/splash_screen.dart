@@ -16,7 +16,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: AppBar(
-        title: Text("Deafult"),
+        title: Text(""),
       ),
       body: Center(
         child: TextButton(
@@ -35,7 +35,7 @@ class SplashScreen extends StatelessWidget {
               );
             }
           },
-          child: Text("GOOGLE MAPS OYNASI"),
+          child: Text("MAP"),
         ),
       ),
     );
