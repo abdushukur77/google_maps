@@ -59,7 +59,7 @@ class MapsViewModel extends ChangeNotifier {
     markers.add(
       Marker(
         position: currentCameraPosition.target,
-        infoWindow: const InfoWindow(title: "Toshkent", snippet: "Chilonzor"),
+        infoWindow: const InfoWindow(title: "Toshkent ", snippet: "Chilonzor"),
         //BitmapDescriptor.defaultMarker,
         // icon: BitmapDescriptor.fromBytes(markerImage),
         markerId: MarkerId(DateTime.now().toString()),
