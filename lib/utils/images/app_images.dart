@@ -8,6 +8,7 @@ class AppImages {
   static const String location = "assets/images/location.png";
   static const String pictures = "assets/images/pictures.png";
   static const String menu = "assets/icons/menu.svg";
+  static const String other = "assets/icons/other.svg";
   //.svg
   static const String delete = "assets/icons/delete.svg";
   //.jpg

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
-
-import '../../view_models/maps_view_model.dart';
+import '../../view_models/map_view_model.dart';
 
 class MapTypeItem extends StatelessWidget {
   const MapTypeItem({super.key});
@@ -16,9 +15,10 @@ class MapTypeItem extends StatelessWidget {
           Container(
             height: 56,
             width: 56,
-            decoration: const BoxDecoration(
+            decoration:  BoxDecoration(
               color: Colors.blue,
-              shape: BoxShape.circle,
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(10),
             ),
           ),
           Positioned(
